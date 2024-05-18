@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Immutable;
+using System.Text;
 
 namespace ConsoleApp1
 {
@@ -15,10 +16,171 @@ namespace ConsoleApp1
             Console.WriteLine();
             Console.WriteLine("--------------");
         }
+
+        static double DoDivision(double num1, double num2)
+        {
+            if(num2 == 0)
+            {
+                throw new System.DivideByZeroException();
+            }
+            return num1 / num2;
+        }
+
+        private static void SayHello()
+        {
+            Console.Write("What is your name? :");
+            String name = Console.ReadLine();
+            Console.WriteLine($"Hello {name}, Welcome to C# learning sessions");
+        }
+
+        static double GetSum(double x = 0, double y = 0)
+        {
+            return x + y;
+        }
+
+        static void DoubleIt(int x , out int solution)
+        {
+            solution = x * 2;
+        }
+        
+        static void SwapNum(ref int x, ref int y)
+        {
+            int temp = x;
+            x = y;
+            y = temp;
+            return;
+        }
+
+        static double GetSumMore(params double[] nums)
+        {
+            double sum = 0;
+            foreach(double num in nums)
+            {
+                sum += num;
+            }
+            return sum;
+        }
+
+        static void PrintInfo(string name, int age)
+        {
+            Console.WriteLine($"My name is {name}. I am {age} years old");
+        }
+
+        // --- METHOD OVERLOADING --- //
+        static double GetSum2(double x=0, double y = 0)
+        {
+            return x + y;
+        }
+        static double GetSum2(double x=0, double y=0, double z = 0)
+        {
+            return x + y + z;
+        }
+        static double GetSum2(string x = "0", string y = "0")
+        {
+            return Convert.ToDouble(x) + Convert.ToDouble(y);
+        }
+        // -------------------------- //
+
+        static  void PaintCar(CarColor cc)
+        {
+            Console.WriteLine("The car was painted {0} with the code {1}", 
+                cc, (int)cc);
+        }
         //----- FUNCTIONS END -----//
+
+        enum CarColor : byte
+        {
+            Orange = 1,
+            Blue,
+            Green,
+            Red,
+            Yellow
+        }
         static void Main(string[] args)
         {
+            CarColor car1 = CarColor.Green;
+            PaintCar(car1);
+            Console.ReadLine();
+            
 
+            
+            /*-------DATE AND TIME---------
+            
+            DateTime awesomeDate = new DateTime(2002, 2, 22);
+            Console.WriteLine("Day of the week : {0} ", awesomeDate.DayOfWeek);
+            awesomeDate = awesomeDate.AddYears(1);
+            Console.WriteLine("Day of the week : {0} ", awesomeDate);
+
+            TimeSpan lunchTime = new TimeSpan(12, 30, 0);
+            lunchTime = lunchTime.Subtract(new TimeSpan(0, 15, 0));
+
+            Console.WriteLine(lunchTime.ToString());
+
+             ------------------------------*/
+            
+            
+            /*------ FUNCTIONS -----
+            int solution;
+            DoubleIt(15, out solution);
+            Console.WriteLine(solution);
+            int x = 5, y = 10;
+            SwapNum(ref x, ref y);
+            Console.WriteLine($"{x} ,{y}");
+            // out and ref treated same at compile time and different at run 
+            // time , we use ref when changes should be reflected and out 
+            // when we have to return more than one value
+            
+            Console.WriteLine($"This is the sum {GetSumMore(1, 2, 3, 4)} ");
+            //Console.WriteLine(GetSum(4, 5));
+            //SayHello();
+
+            PrintInfo(age: 23, name: "Krunal");  //named params so can pass it in any order
+
+
+            Console.WriteLine("ANS FROM METHOD OVERLOADIN : {0} AND {1}", GetSum2(x, y), GetSum2(x.ToString(), y.ToString()));
+            Console.WriteLine(GetSum2(2, 4, 0));
+            
+            ------------------------*/
+
+
+            /*--------------------STRING BUILDERS-----------
+             *
+            // add space automatically, by default has 16 char space 
+            // can change char directly into the memory rather than creating new copy
+            StringBuilder sb = new StringBuilder("My name is Krunal");
+            StringBuilder sb2 = new StringBuilder("I am ICT Student", 20);   // giving the fixed size for string
+            Console.WriteLine($"This is my first string {sb}, and this is the type of it {sb.GetType().Name}, length of the string is {sb.Length}");
+            Console.WriteLine($"This is my first string {sb.Capacity}, and this is the type of it {sb2.GetType().Name}, length of the string is {sb2.Length}");
+            
+             -----------------------------------------------*/
+            
+            /* ------------EXCEPTIONAL HANDLING-------------
+             
+            double num1 = -4, num2 = 0;
+            try
+            {
+                Console.WriteLine("{0} / {1} = {2}", num1, num2, DoDivision(num1, num2));
+            }
+            catch(DivideByZeroException ex)
+            {
+                Console.WriteLine("you can't divide by zero!!!");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.GetType().Name);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error Occured!!!");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.GetType().Name);
+            }
+            finally               // --- every time this block will run in both try and catch so can used as clean up block
+            {
+                Console.WriteLine("Cleaning up!!!");
+            }
+
+            -------------------------------------------------- */
+
+            /*
             // To compare strings use Equals
             string name2 = "Derek";
             string name3 = "Derek";
@@ -56,6 +218,7 @@ namespace ConsoleApp1
                 Console.WriteLine(i);
                 i++;
             }
+             */
 
             /* DO WHILE LOOP
             // Use do while when you must execute the code
