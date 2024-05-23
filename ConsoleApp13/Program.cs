@@ -13,8 +13,26 @@ namespace ConsoleApp13
             }
         }
 
+        static void CountTo(int maxNum)
+        {
+            for(int i=0; i<= maxNum; i++)
+            {
+                Console.WriteLine(i);
+            }
+        }
         static void Main(string[] args)
         {
+            Thread t = new Thread(() => CountTo(10));
+            t.Start();
+
+            new Thread(() =>
+            {
+                CountTo(4);
+                CountTo(3);
+            }).Start();
+
+            /*
+             * Multiple Thread bank transaction example
             BankAcct acct = new BankAcct(10);
 
             Thread[] threads = new Thread[15];
@@ -47,9 +65,9 @@ namespace ConsoleApp13
             Console.WriteLine("Thread {0} ending : {1}",
                 Thread.CurrentThread.Name, Thread.CurrentThread.Name);
 
-            /*Bank transction example
-             
              */
+
+
             /*
              * Basic Thread examples
             
