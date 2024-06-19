@@ -11,6 +11,9 @@
 
         private void OnCounterClicked(object sender, EventArgs e)
         {
+            Navigation.PushAsync(new ContentPageDemo());
+
+            /*
             count++;
 
             if (count == 1)
@@ -19,6 +22,7 @@
                 CounterBtn.Text = $"Clicked {count} times";
 
             SemanticScreenReader.Announce(CounterBtn.Text);
+            */
         }
     }
 
