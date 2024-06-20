@@ -1,6 +1,6 @@
 namespace MauiApp2;
 
-public partial class TabbedDemo : ContentPage
+public partial class TabbedDemo : TabbedPage
 {
 	public TabbedDemo()
 	{
