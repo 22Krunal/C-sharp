@@ -9,17 +9,32 @@
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private void SLayoutBtn_Clicked(object sender, EventArgs e)
         {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            Navigation.PushAsync(new StackDemo());
+        
         }
+        private void SLayoutBtn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new HStackDemo());
+        }
+        private void GridBtn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new GridDemo());
+        }
+        private void OnCalc_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new CalcDemo());
+        }
+        private void FlexBtn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new FlexDemo());
+        }
+        private void AbsoluteBtn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AbsoluteDemo());
+        }
+
     }
 
 }

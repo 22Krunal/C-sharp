@@ -62,4 +62,25 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Update="AbsoluteDemo.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </None>
+	  <None Update="CalcDemo.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </None>
+	  <None Update="FlexDemo.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </None>
+	  <None Update="GridDemo.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </None>
+	  <None Update="HStackDemo.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </None>
+	  <None Update="StackDemo.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </None>
+	</ItemGroup>
+
 </Project>
