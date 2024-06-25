@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="MauiApp4.ControlDemo"
+             Title="ControlDemo">
+    <ScrollView>
+          <VerticalStackLayout Margin="20" Spacing="10">
+            <ImageButton x:Name ="imgBtn" Source="dotnet_bot.svg"
+                           Clicked="imgBtn_Clicked"/>
+            <Button x:Name="btn" Text="Alert" Clicked="btn_Clicked"
+                     HorizontalOptions="Center"/>
+            <Label x:Name="infoLabel"/>
+
+            <SearchBar x:Name="searchBar" SearchButtonPressed="searchBar_SearchButtonPressed"/>
+
+            <RadioButton CheckedChanged="RadioButton_CheckedChanged"
+                         Content="Man" GroupName="SexGrp"
+                         Value="Man"/>
+            <RadioButton CheckedChanged="RadioButton_CheckedChanged"
+                         Content="Woman" GroupName="SexGrp"
+                         Value="Woman"/>
+
+            <HorizontalStackLayout>
+                <CheckBox IsChecked="True" Color="Blue"
+                          VerticalOptions="Center"
+                          CheckedChanged="CheckBox_CheckedChanged"/>
+                <Label Text="Do you like this tutorial"
+                       VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Switch IsToggled="True" OnColor="Blue"
+                        ThumbColor="Purple"
+                        VerticalOptions="Center"
+                        Toggled="Switch_Toggled"/>
+                <Label Text ="You love this Tutorial"
+                       VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+            <SwipeView>
+                <SwipeView.LeftItems>
+                    <SwipeItem Text ="Favourite"
+                               IconImageSource="dotnet_bot.svg"
+                               BackgroundColor="LightGreen"
+                               Invoked="SwipeItem_Invoked"/>
+                    <SwipeItem Text ="Delete"
+                               IconImageSource="dotnet_bot.svg"
+                               BackgroundColor="LightPink"
+                               Invoked="SwipeItem_Invoked_1"/>
+                </SwipeView.LeftItems>
+                <Grid HeightRequest="60"
+                      WidthRequest="300"
+                      BackgroundColor="White">
+                    <Image Source="dotnet_bot.svg"
+                           HorizontalOptions="Start"/>
+                </Grid>
+            </SwipeView>
+
+            <Slider x:Name="slider" Minimum="0" Maximum="50"
+                      MinimumTrackColor="Cyan" MaximumTrackColor="Blue"
+                      ThumbColor="Purple" ValueChanged="slider_ValueChanged"/>
+            <Label x:Name="sliderLabel"/>
+            <Stepper x:Name="stepper" ValueChanged="stepper_ValueChanged"
+                       Maximum="50" Minimum="0" Increment="1"/>
+            <Label x:Name="stepperLabel"/>
+            <DatePicker MinimumDate="12/21/1974"
+                          MaximumDate="{x:Static sys:DateTime.Now}"
+                          Date="{x:Static sys:DateTime.Now}"/>
+            <TimePicker Time="12:00:00"/>
+              <!--TextColor: Displayed text color
+                  FontAttributes, FontFamily, FontSize are also available-->
+            <!--SingleLine-->
+              <Entry x:Name="entry"
+                     Placeholder="Enter Name"
+                     ClearButtonVisibility="WhileEditing"
+                     IsSpellCheckEnabled="true"
+                     IsTextPredictionEnabled="true"
+                     Completed="entry_Completed"/>
+              <!--MultipleLine-->
+            <Editor AutoSize="TextChanges"
+                      Placeholder="Just some random words">
+            </Editor>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
