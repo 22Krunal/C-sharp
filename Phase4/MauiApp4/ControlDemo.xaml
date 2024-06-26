@@ -79,7 +79,40 @@
               <!--MultipleLine-->
             <Editor AutoSize="TextChanges"
                       Placeholder="Just some random words">
-            </Editor>
+            </Editor
+                    <ListVeiw x:Name="Steelers" ItemSource="{Binding MyPlayers}"
+                              RowHeight="100"
+                              ItemSelected="Steelers_ItemSeleted">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ImageCell Text="{Binding Name}"
+                               ImageSource="{Binding Image}">
+                        <ImageCell.ContextActions>
+                            <MenuItem Text="Delete" IsDestructive="True"
+                                      Command="{Binding Path=BindingContext.DeletePlayer
+                                Source={Reference Steelers}}"
+                                      CommandParameter="{Binding .}"/>
+                        </ImageCell.ContextActions>
+                    </ImageCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            </ListVeiw>
+            <CarouselView ItemSource="{Binding MyPlayers}">
+            <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame CornerRadius="5" Margin="5"
+                                   HeightRequest="250"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="CenterAndExpand"
+                                   HasShadow="True">
+                                <Label Text="{Binding Name"/>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+            </CarouselView.ItemTemplate>
+
+            </CarouselView>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
