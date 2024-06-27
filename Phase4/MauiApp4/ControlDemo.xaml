@@ -106,7 +106,19 @@
                                    HorizontalOptions="Center"
                                    VerticalOptions="CenterAndExpand"
                                    HasShadow="True">
-                                <Label Text="{Binding Name"/>
+                                <StackLayout>
+                                    
+                                <Label Text="{Binding Name}"
+                                       FontAttribute="Bold"
+                                       FontSize="Large"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                                <Image Source="{Binding Image}"
+                                       Aspect="Fill"
+                                       HeightRequest="150"
+                                       WidthRequest="150"
+                                       HorizontalOptions="Center"/>
+                                </StackLayout>
                             </Frame>
                         </StackLayout>
                     </DataTemplate>
